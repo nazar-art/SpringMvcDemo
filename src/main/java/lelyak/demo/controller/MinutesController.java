@@ -2,21 +2,29 @@ package lelyak.demo.controller;
 
 import lelyak.demo.model.Activity;
 import lelyak.demo.model.Exercise;
+import lelyak.demo.service.IExerciseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 public class MinutesController {
 
+    @Autowired
+    private IExerciseService exerciseService;
+
     @RequestMapping(value = "/addMinutes")
-    public String addMinutes(@ModelAttribute(value = "exercise") Exercise exercise) {
+    public String addMinutes(@Valid @ModelAttribute(value = "exercise") Exercise exercise, BindingResult result) {
+        System.out.printf("Result has errors: %s%n", result.hasErrors());
         System.out.printf("Exercise: %d%n", exercise.getMinutes());
+        System.out.printf("Exercise activity: %s%n", exercise.getActivity());
 //        return "forward:addMoreMinutes.html";
 //        return "redirect:addMoreMinutes.html";
         return "addMinutes";
@@ -24,20 +32,7 @@ public class MinutesController {
 
     @RequestMapping(value = "/activities", method = RequestMethod.GET)
     public @ResponseBody List<Activity> findAllActivities() {
-        List<Activity> activities = new ArrayList<>();
-        Activity run = new Activity();
-        run.setDesc("Run");
-        activities.add(run);
-
-        Activity bike = new Activity();
-        bike.setDesc("Bike");
-        activities.add(bike);
-
-        Activity swim = new Activity();
-        swim.setDesc("Swim");
-        activities.add(swim);
-
-        return activities;
+        return exerciseService.findAllActivities();
     }
 
     /*@RequestMapping(value = "/addMoreMinutes")

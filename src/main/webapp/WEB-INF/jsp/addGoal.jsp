@@ -21,7 +21,7 @@
 </head>
 
 <body>
-Language: <a href="?language=en">English</a> | <a href="?language=uk">Ukrainian</a>
+<spring:message code="language"/> <a href="?language=en">English</a> | <a href="?language=uk">Ukrainian</a>
 <form:form commandName="goal">
     <form:errors path="*" cssClass="errorblock" element="div" />
     <table>
@@ -32,7 +32,7 @@ Language: <a href="?language=en">English</a> | <a href="?language=uk">Ukrainian<
         </tr>
         <tr>
             <td colspan="3">
-                <input type="submit" value="Enter Goal Minutes"/>
+                <input type="submit" value="<spring:message code="goal.enter"/>"/>
             </td>
         </tr>
     </table>
