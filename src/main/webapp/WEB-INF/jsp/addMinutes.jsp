@@ -55,13 +55,11 @@
             <td><spring:message code="goal.text"/></td>
             <td>
                 <form:input path="minutes"/>
+                <form:errors path="minutes" cssClass="error"/>
             </td>
             <td>
-                <form:select id="activities" path="activity">
-
-                </form:select>
+                <form:select id="activities" path="activity"/>
             </td>
-            <td><form:errors path="minutes" cssClass="error"/></td>
         </tr>
         <tr>
             <td colspan="2">

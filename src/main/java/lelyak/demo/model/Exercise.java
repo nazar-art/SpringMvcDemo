@@ -2,28 +2,56 @@ package lelyak.demo.model;
 
 import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Entity
+@Table(name = "EXERCISE")
 public class Exercise {
-    @Range(min = 1, max = 120)
-    private int minutes;
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Range(min = 1, max = 120)
+	private int minutes;
 
-    @NotNull
-    private String activity;
+	@NotNull
+	private String activity;
+	
+	@ManyToOne
+	private Goal goal;
 
-    public String getActivity() {
-        return activity;
-    }
+	public String getActivity() {
+		return activity;
+	}
 
-    public void setActivity(String activity) {
-        this.activity = activity;
-    }
+	public Goal getGoal() {
+		return goal;
+	}
 
-    public int getMinutes() {
-        return minutes;
-    }
+	public Long getId() {
+		return id;
+	}
+	
+	public int getMinutes() {
+		return minutes;
+	}
 
-    public void setMinutes(int minutes) {
-        this.minutes = minutes;
-    }
+	public void setActivity(String activity) {
+		this.activity = activity;
+	}
+
+	public void setGoal(Goal goal) {
+		this.goal = goal;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setMinutes(int minutes) {
+		this.minutes = minutes;
+	}
+	
 }
