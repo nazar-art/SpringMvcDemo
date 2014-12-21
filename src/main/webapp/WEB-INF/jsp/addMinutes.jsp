@@ -5,13 +5,14 @@
 <html>
 <head>
     <title>Add Minutes Page</title>
-    <script type="application/javascript" src="jquery-2.1.3.js"/>
+    <script type="text/javascript" src="jquery-2.1.3.js"></script>
+
     <script type="text/javascript">
         $(document).ready(
-                function () {
+                function() {
                     $.getJSON('<spring:url value="activities.json"/>', {
-                        ajax: 'true'
-                    }, function (data) {
+                        ajax : 'true'
+                    }, function(data){
                         var html = '<option value="">--Please select one--</option>';
                         var len = data.length;
                         for (var i = 0; i < len; i++) {
@@ -24,7 +25,9 @@
                     });
 
                 });
+
     </script>
+
     <style>
         .error {
             color: #ff0000;
