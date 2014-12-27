@@ -32,6 +32,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
     <style>
         .error {
             color: #ff0000;
@@ -74,10 +75,10 @@
         </p>
 
         <a class="btn" href="?language=en">
-            English
+            <spring:message code="language.english"/>
         </a>
         <a class="btn" href="?language=uk">
-            Ukrainian
+            <spring:message code="language.ukrainian"/>
         </a>
         <br/>
         <br/>
