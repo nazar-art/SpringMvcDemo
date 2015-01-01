@@ -3,23 +3,23 @@ package lelyak.demo.model;
 
 public class Activity {
 
-	private Long id;
-	
-	private String desc;
+    private Long id;
 
-	public String getDesc() {
-		return desc;
-	}
+    private String desc;
 
-	public Long getId() {
-		return id;
-	}
+    public String getDesc() {
+        return desc;
+    }
 
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

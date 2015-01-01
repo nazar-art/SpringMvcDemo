@@ -31,10 +31,10 @@
 
     <script type="text/javascript">
         $(document).ready(
-                function() {
+                function () {
                     $.getJSON('<spring:url value="activities.json"/>', {
-                        ajax : 'true'
-                    }, function(data){
+                        ajax: 'true'
+                    }, function (data) {
                         var html = '<option value="">--Please select one--</option>';
                         var len = data.length;
                         for (var i = 0; i < len; i++) {

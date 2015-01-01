@@ -19,50 +19,49 @@ import java.util.List;
 @SessionAttributes("goal")
 public class GoalController {
 
-	@Autowired
-	private GoalService goalService;
-	
-	@RequestMapping(value = "addGoal", method = RequestMethod.GET)
-	public String addGoal(Model model) {
-		Goal goal = new Goal();
-		goal.setMinutes(10);
-		model.addAttribute("goal", goal);
-		
-		return "addGoal";
-	}
-	
-	@RequestMapping(value = "addGoal", method = RequestMethod.POST)
-	public String updateGoal(@Valid @ModelAttribute("goal") Goal goal, BindingResult result) {
-		
-		System.out.println("result has errors: " + result.hasErrors());
-		
-		System.out.println("Goal set: " + goal.getMinutes());
-		
-		if(result.hasErrors()) {
-			return "addGoal";
-		}
-		else {
-			goalService.save(goal);
-		}
-		
-		return "redirect:index.jsp";
-	}
-	
-	@RequestMapping(value="getGoals", method = RequestMethod.GET)
-	public String getGoals(Model model) {
-		List<Goal> goals = goalService.findAllGoals();
-		
-		model.addAttribute("goals",	goals);
-		
-		return "getGoals";
-	}
-	
-	@RequestMapping(value="getGoalReports", method = RequestMethod.GET)
-	public String getGoalReports(Model model) {
-		List<GoalReport> goalReports = goalService.findAllGoalReports();
-		
-		model.addAttribute("goalReports", goalReports);
-		
-		return "getGoalReports";
-	}
+    @Autowired
+    private GoalService goalService;
+
+    @RequestMapping(value = "addGoal", method = RequestMethod.GET)
+    public String addGoal(Model model) {
+        Goal goal = new Goal();
+        goal.setMinutes(10);
+        model.addAttribute("goal", goal);
+
+        return "addGoal";
+    }
+
+    @RequestMapping(value = "addGoal", method = RequestMethod.POST)
+    public String updateGoal(@Valid @ModelAttribute("goal") Goal goal, BindingResult result) {
+
+        System.out.println("result has errors: " + result.hasErrors());
+
+        System.out.println("Goal set: " + goal.getMinutes());
+
+        if (result.hasErrors()) {
+            return "addGoal";
+        } else {
+            goalService.save(goal);
+        }
+
+        return "redirect:index.jsp";
+    }
+
+    @RequestMapping(value = "getGoals", method = RequestMethod.GET)
+    public String getGoals(Model model) {
+        List<Goal> goals = goalService.findAllGoals();
+
+        model.addAttribute("goals", goals);
+
+        return "getGoals";
+    }
+
+    @RequestMapping(value = "getGoalReports", method = RequestMethod.GET)
+    public String getGoalReports(Model model) {
+        List<GoalReport> goalReports = goalService.findAllGoalReports();
+
+        model.addAttribute("goalReports", goalReports);
+
+        return "getGoalReports";
+    }
 }

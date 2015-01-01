@@ -12,20 +12,20 @@ import java.util.List;
 @Service("goalService")
 public class GoalServiceImpl implements GoalService {
 
-	@Autowired
-	private GoalRepository goalRepository;
-	
-	@Transactional
-	public Goal save(Goal goal) {
-		return goalRepository.save(goal);
-	}
+    @Autowired
+    private GoalRepository goalRepository;
 
-	public List<Goal> findAllGoals() {
-		return goalRepository.loadAll();
-	}
+    @Transactional
+    public Goal save(Goal goal) {
+        return goalRepository.save(goal);
+    }
 
-	public List<GoalReport> findAllGoalReports() {
-		return goalRepository.findAllGoalReports();
-	}
+    public List<Goal> findAllGoals() {
+        return goalRepository.loadAll();
+    }
+
+    public List<GoalReport> findAllGoalReports() {
+        return goalRepository.findAllGoalReports();
+    }
 
 }

@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface GoalRepository {
 
-	Goal save(Goal goal);
+    Goal save(Goal goal);
 
-	List<Goal> loadAll();
+    List<Goal> loadAll();
 
-	List<GoalReport> findAllGoalReports();
-	
+    List<GoalReport> findAllGoalReports();
+
 }

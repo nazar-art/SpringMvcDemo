@@ -9,16 +9,16 @@ import javax.persistence.PersistenceContext;
 @Repository("exerciseRepository")
 public class ExerciseRepositoryImpl implements ExerciseRepository {
 
-	@PersistenceContext
-	private EntityManager em;
-	
-	public Exercise save(Exercise exercise) {
-		
-		em.persist(exercise);
-		
-		em.flush();
-		
-		return exercise;
-	}
+    @PersistenceContext
+    private EntityManager em;
+
+    public Exercise save(Exercise exercise) {
+
+        em.persist(exercise);
+
+        em.flush();
+
+        return exercise;
+    }
 
 }

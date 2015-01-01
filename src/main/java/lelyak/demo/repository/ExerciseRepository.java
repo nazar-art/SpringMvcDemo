@@ -4,6 +4,6 @@ import lelyak.demo.model.Exercise;
 
 public interface ExerciseRepository {
 
-	Exercise save(Exercise exercise);
-	
+    Exercise save(Exercise exercise);
+
 }

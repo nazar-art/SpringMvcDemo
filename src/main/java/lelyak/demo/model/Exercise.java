@@ -8,50 +8,52 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "EXERCISE")
 public class Exercise {
-	
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	@Range(min = 1, max = 120)
-	private int minutes;
 
-	@NotNull
-	private String activity;
-	
-	@ManyToOne
-	private Goal goal;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	public String getActivity() {
-		return activity;
-	}
+    @Column(name = "MINUTES")
+    @Range(min = 1, max = 120)
+    private int minutes;
 
-	public Goal getGoal() {
-		return goal;
-	}
+    @NotNull
+    @Column(name = "ACTIVITY")
+    private String activity;
 
-	public Long getId() {
-		return id;
-	}
-	
-	public int getMinutes() {
-		return minutes;
-	}
+    @ManyToOne
+    private Goal goal;
 
-	public void setActivity(String activity) {
-		this.activity = activity;
-	}
+    public String getActivity() {
+        return activity;
+    }
 
-	public void setGoal(Goal goal) {
-		this.goal = goal;
-	}
+    public Goal getGoal() {
+        return goal;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setMinutes(int minutes) {
-		this.minutes = minutes;
-	}
-	
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public void setGoal(Goal goal) {
+        this.goal = goal;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
 }
