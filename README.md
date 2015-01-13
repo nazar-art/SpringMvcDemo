@@ -1,0 +1,1 @@
+Here should be configuration for Application !!!
