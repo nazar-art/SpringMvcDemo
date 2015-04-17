@@ -1,1 +1,3 @@
-Here should be configuration for Application !!!
+#### Basic usage of Spring framework
+
+// todo - Here should be configuration for Application !!!
